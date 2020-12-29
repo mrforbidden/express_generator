@@ -13,6 +13,8 @@ var leaderRouter = require('./routes/leaderRouter');
 const mongoose = require('mongoose');
 
 const Dishes = require('./modles/dishes');
+const Promotions = require('./modles/promotions');
+const Leaders = require('./modles/leaders');
 
 const url = 'mongodb://localhost:27017/conFusion';
 const connect = mongoose.connect(url);
@@ -31,7 +33,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
